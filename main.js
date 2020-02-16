@@ -40,4 +40,22 @@ const foodSum = () => {
 }
 document.getElementById('menu').innerHTML += foodSum();
 
+const foodFilter = (letter) => {
+    let filteredByFirstLetter = [];
+     for (let i = 0;i<foodArray.length;i++){
+         if (foodArray[i].charAt(0)===letter)
+         filteredByFirstLetter.push(foodArray[i]);
+     }
+     return filteredByFirstLetter;
+}
 
+let sFoods = foodFilter("S");
+
+let filteredFoodsHTML = "<hr><br>Foods that start with the letter 'S': <br/>";
+if (sFoods) {
+    for (let i = 0;i<sFoods.length;i++){
+        filteredFoodsHTML += sFoods[i] + "</br>";
+    }
+}
+
+document.getElementById('menu').innerHTML+= filteredFoodsHTML;
